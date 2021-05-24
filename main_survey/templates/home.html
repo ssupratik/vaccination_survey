@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<div class="card">
+    <div class="card-header">
+        <h2>State Vaccination Survey for Sikkim</h2>
+    </div>
+    <div class="card-body">
+        <form method="POST" class="form-group">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-2 mb-0">
+                  {{ form.person_title|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-6 mb-0">
+                  {{ form.full_name|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-4 mb-0">
+                  {{ form.date_of_birth|as_crispy_field }}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4 mb-0">
+                  {{ form.id_proof|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-4 mb-0">
+                  {{ form.id_proof_no|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-4 mb-0">
+                  {{ form.mobile_no|as_crispy_field }}
+                </div>
+            </div>
+            {{ form.address|as_crispy_field }}
+            <div class="form-row">
+                <div class="form-group col-md-4 mb-0">
+                  {{ form.ward|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-4 mb-0">
+                  {{ form.block|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-4 mb-0">
+                  {{ form.district|as_crispy_field }}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-2 mb-0">
+                  {{ form.vaccination_status|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-4 mb-0">
+                  {{ form.date_of_second_dose|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-6 mb-0">
+                  {{ form.registration_id|as_crispy_field }}
+                </div>
+              </div>
+              {{ form.reason|as_crispy_field }}
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
